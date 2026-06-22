@@ -1,7 +1,13 @@
-class Payment:
+class PaymentEngine:
 
-    def create(self, user_id, plan):
-        return {"user": user_id, "plan": plan, "status": "pending"}
+    def create_invoice(self, user_id, plan):
+        return {
+            "user_id": user_id,
+            "plan": plan,
+            "status": "pending",
+            "currency": "USDT",
+            "network": "TRC20"
+        }
 
-    def verify(self, tx):
+    def verify_payment(self, tx_id):
         return True
